@@ -1,0 +1,61 @@
+E:\git>cd gitlab3
+
+E:\git\gitlab3>git init
+Initialized empty Git repository in E:/git/gitlab3/.git/
+
+E:\git\gitlab3>git add .
+
+E:\git\gitlab3>git commit -m"added line"
+[master (root-commit) 99dc72a] added line
+ 1 file changed, 1 insertion(+)
+ create mode 100644 lab2.txt
+
+E:\git\gitlab3>git checkout -b fb1
+Switched to a new branch 'fb1'
+
+E:\git\gitlab3>git stash save "saved changes for fb1"
+No local changes to save
+
+E:\git\gitlab3>git stash save "saved changes for fb1"
+Saved working directory and index state On fb1: saved changes for fb1
+
+E:\git\gitlab3>git checkout master
+Switched to branch 'master'
+
+E:\git\gitlab3>git checkout -b fb2
+Switched to a new branch 'fb2'
+
+E:\git\gitlab3>git stash apply
+On branch fb2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   lab2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+E:\git\gitlab3>git add .
+
+E:\git\gitlab3>git commit -m"third changes"
+[fb2 0897962] third changes
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+E:\git\gitlab3>git merge fb2
+Already up to date.
+
+E:\git\gitlab3>git checkout master
+Switched to branch 'master'
+
+E:\git\gitlab3>git merge fb2
+Updating 99dc72a..0897962
+Fast-forward
+ lab2.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+E:\git\gitlab3>git stash list
+stash@{0}: On fb1: saved changes for fb1
+
+E:\git\gitlab3>git stash drop
+Dropped refs/stash@{0} (a57c562545747ef9e97e8d9d26dc755e29eb9cb5)
+
+E:\git\gitlab3>
